@@ -1,0 +1,370 @@
+/*
+
+AVATAR sketch for CENG 4265 Fall 2014
+
+Current Wifi information:
+Arduino Board Name = AVATAR
+
+To reset Wifi settings:
+1. Press the WLAN button on the side of the Arduino Yun for longer than
+  5 seconds, but less than 30 seconds.
+2. The WLAN LED will blink blue and the sysem will reset.
+3. Allow at least 2 minutes for the system to completely reboot.
+4. Connect a computer to the Arduino Yun wirelessly like an Access Point.
+5. With a web browser navigate to http://192.168.240.1
+6. Enter the password "arduino" 
+7. Change the Wifi setting accordingly and save the configuration.
+8. Allow at least 2 minutes for the system to reboot and connect to Wifi.
+9. The WLAN LED should be solid blue when connected.
+
+Servo PWM:
+1500 = Full Stop
+1000 = Full Reverse/Left
+2000 = Full Forward/Right
+
+Controls will be issued through a ReST API over Wifi.
+Example ReST commands:
+http://192.70.120.50/arduino/drive/fwd/1
+http://192.70.120.50/arduino/turn/right/1
+http://192.70.120.50/arduino/pitch/up/1
+http://192.70.120.50/arduino/vert/up/1
+
+Controls will be issued through a remote computer running
+a Python script that converts the Foot Pedal signals
+into ReST commands issued through the local network.
+
+*/
+
+#include <Bridge.h>
+#include <YunServer.h>
+#include <YunClient.h>
+#include <SPI.h>
+#include <Servo.h>
+#include <SabertoothSimplified.h>
+
+// Listen on default port 5555, the webserver on the Yun
+// will forward there all the HTTP requests for us.
+YunServer server;
+
+Servo leftMotor;
+Servo rightMotor;
+SabertoothSimplified ST;
+
+void setup() {
+  
+  // Intitalize pins for output
+  pinMode(7, OUTPUT);
+  pinMode(8, OUTPUT);
+    
+  // Need to assign pins for pitch and vert
+  
+  // Attach the motor to pins
+  leftMotor.attach(7);
+  rightMotor.attach(8);
+ 
+  leftMotor.writeMicroseconds(1500);
+  rightMotor.writeMicroseconds(1500);
+  // Need to initialize pitch and vert motors
+  
+  // Bridge startup
+  pinMode(13, OUTPUT);
+  digitalWrite(13, LOW);
+  Bridge.begin();
+  digitalWrite(13, HIGH);
+
+  // Listen for incoming connection only from localhost
+  // (no one from the external network could connect)
+  server.listenOnLocalhost();
+  server.begin();
+
+}
+
+void loop() {
+  // Get clients coming from server
+  YunClient client = server.accept();
+
+  // There is a new client?
+  if (client) {
+    // Process request
+    process(client);
+
+    // Close connection and free resources.
+    client.stop();
+  }
+
+  delay(5); // Poll every 5ms
+}
+
+void process(YunClient client) {
+  // read the command
+  String command = client.readStringUntil('/');
+
+  // is "drive" command?
+  if (command == "drive") {
+    driveCommand(client);
+  }
+
+  // is "turn" command?
+  if (command == "turn") {
+    turnCommand(client);
+  }
+  
+  // is "yaw" command?
+  if (command == "yaw") {
+    yawCommand(client);
+  }
+  
+  // is "backup" command?
+  if (command == "backup"){
+    backupCommand(client);
+  }
+}
+
+void driveCommand(YunClient client) {
+  // Read the Command option
+  String option = client.readStringUntil('/');
+
+  // If the next character is a '/' it means we have an URL
+  // with a value like: "/drive/forward/1"
+  
+  if (option == "forward"){
+    moveFwd();
+  }
+  
+  if (option == "rev") {
+    moveRev();
+  }
+ 
+  if (option == "stop") {
+    stopAll();
+  }
+
+  // Send feedback to client
+  client.print(F("Drive Command issued: "));
+  client.print(option);
+
+}
+
+void backupCommand(YunClient client) {
+  // Read the Command option
+  String option = client.readStringUntil('/');
+
+  // If the next character is a '/' it means we have an URL
+  // with a value like: "/turn/right"
+  if (option == "backRight") {
+    backupRight();
+  }
+  if (option == "backLeft") {
+    backupLeft();
+  }
+
+    // Send feedback to client
+    client.print(F("Backup Command issued: "));
+    client.print(option);
+
+}
+
+
+void turnCommand(YunClient client) {
+  // Read the Command option
+  String turnOption = client.readStringUntil('/');
+
+  // If the next character is a '/' it means we have an URL
+  // with a value like: "/turn/right"
+  if (turnOption == "right") {
+    turnRightCommand(client);
+  }
+  if (turnOption == "left") {
+    turnLeftCommand(client);
+  }
+
+    // Send feedback to client
+    //client.print(F("Turn Command issued: "));
+    //client.print(option);
+
+}
+
+void turnRightCommand(YunClient client) {
+  // Read the Command option
+  String option = client.readStringUntil('/');
+
+  // If the next character is a '/' it means we have an URL
+  // with a value like: "/turn/right"
+  if (option == "wide") {
+    rightWide();
+  }
+  if (option == "narrow") {
+    rightNarrow();
+  }
+
+    // Send feedback to client
+    client.print(F("Turn Right Command issued: "));
+    client.print(option);
+
+}
+
+void turnLeftCommand(YunClient client) {
+  // Read the Command option
+  String option = client.readStringUntil('/');
+
+  // If the next character is a '/' it means we have an URL
+  // with a value like: "/turn/right"
+  if (option == "wide") {
+    leftWide();
+  }
+  if (option == "narrow") {
+    leftNarrow();
+  }
+
+    // Send feedback to client
+    client.print(F("Turn Left Command issued: "));
+    client.print(option);
+
+}
+
+
+void yawCommand(YunClient client) {
+  // Read the Command option
+  String option = client.readStringUntil('/');
+
+  // If the next character is a '/' it means we have an URL
+  // with a value like: "/turn/right"
+  if (option == "cw") {
+    yawCW();
+  }
+  if (option == "ccw") {
+    yawCCW();
+  }
+
+    // Send feedback to client
+    client.print(F("Yaw Command issued: "));
+    client.print(option);
+
+}
+
+//--------------------------------------------------------------------
+// Methods for servo control
+void moveFwd(){
+  
+  leftMotor.writeMicroseconds(1100);
+  rightMotor.writeMicroseconds(1100);
+  delay(400);
+  leftMotor.writeMicroseconds(1030);
+  rightMotor.writeMicroseconds(1030); 
+  delay(700);
+  leftMotor.writeMicroseconds(900);
+  rightMotor.writeMicroseconds(900);
+  //turnMotor.writeMicroseconds(1500);
+  /*
+  int i = 1500;
+  while(i <= 2000){
+    driveMotor.writeMicroseconds(i);
+    i = i + 50;
+    delay(100);
+  }
+  */
+  //driveMotor.writeMicroseconds(1040);
+  delay(200);
+}
+
+void moveRev(){
+ 
+ leftMotor.writeMicroseconds(1800);
+ rightMotor.writeMicroseconds(1800);  
+ //turnMotor.writeMicroseconds(1500);
+ /*
+ int i = 1500;
+ while(i >= 1000){
+   driveMotor.writeMicroseconds(i);
+   i = i - 50;
+   delay(100);
+ }
+ */
+ //driveMotor.writeMicroseconds(1800);
+ delay(200);
+}
+//====================================================
+void backupRight(){
+  
+  leftMotor.writeMicroseconds(1700);
+  rightMotor.writeMicroseconds(2000);   
+  //driveMotor.writeMicroseconds(1500);
+  //turnMotor.writeMicroseconds(1900);
+  delay(100);
+}
+
+void backupLeft(){
+  
+  leftMotor.writeMicroseconds(2000);
+  rightMotor.writeMicroseconds(1700);   
+  //driveMotor.writeMicroseconds(1500);
+  //turnMotor.writeMicroseconds(1900);
+  delay(100);
+}
+//===================================================
+void rightWide(){
+  
+  leftMotor.writeMicroseconds(1100);
+  rightMotor.writeMicroseconds(900);   
+  //driveMotor.writeMicroseconds(1500);
+  //turnMotor.writeMicroseconds(1900);
+  delay(100);
+}
+
+void leftWide(){
+  leftMotor.writeMicroseconds(900);
+  rightMotor.writeMicroseconds(1100); 
+  //driveMotor.writeMicroseconds(1500);
+  //turnMotor.writeMicroseconds(1000);
+  delay(100);
+}
+
+void rightNarrow(){
+  
+  leftMotor.writeMicroseconds(1200);
+  rightMotor.writeMicroseconds(900);   
+  //driveMotor.writeMicroseconds(1500);
+  //turnMotor.writeMicroseconds(1900);
+  delay(100);
+}
+
+void leftNarrow(){
+  leftMotor.writeMicroseconds(900);
+  rightMotor.writeMicroseconds(1200); 
+  //driveMotor.writeMicroseconds(1500);
+  //turnMotor.writeMicroseconds(1000);
+  delay(100);
+}
+
+void stopAll(){
+  
+  
+  leftMotor.writeMicroseconds(1200);
+  rightMotor.writeMicroseconds(1200);
+  delay(450); 
+  leftMotor.writeMicroseconds(1500);
+  rightMotor.writeMicroseconds(1500); 
+  //driveMotor.writeMicroseconds(1500);
+  //turnMotor.writeMicroseconds(1500);
+  delay(500);
+}
+
+void yawCW(){
+  
+  leftMotor.writeMicroseconds(2000);
+  rightMotor.writeMicroseconds(1000);   
+  delay(50);  
+}
+
+void yawCCW(){
+
+  leftMotor.writeMicroseconds(1000);
+  rightMotor.writeMicroseconds(2000); 
+  delay(50);
+  
+}
+
+
+//---------------------------------------
+
+
