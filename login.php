@@ -1,23 +1,28 @@
 <?php
 session_start();
  
+//Username and password
 $user["chris"] = "password";
 $user["khanh"] = "password";
 $user["paul"] = "password";
  
+ //If user is not logged in
 if (!isset($_SESSION['loggedIn']))
 {
     echo '<h1>Login</h1>';
     if ($_SERVER['REQUEST_METHOD'] == 'POST')
     {
+		//If username OR password field is left empty
         if (empty($_POST['username']) || empty($_POST['password']))
         {
             echo '<p>Please enter both a username and password.</p>';
         }
+		//Username and password don't match
         elseif ($user[$_POST['username']] != $_POST['password'])
         {
             echo '<p>Incorrect username or password</p>';
         }
+		//User entered valid details and can login
         else
         {
             header("Refresh: 1");
