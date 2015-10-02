@@ -12,18 +12,22 @@ if (!isset($_SESSION['loggedIn']))
     echo '<h1>Login</h1>';
     if ($_SERVER['REQUEST_METHOD'] == 'POST')
     {
-		//If username OR password field is left empty
-        if (empty($_POST['username']) || empty($_POST['password']))
+		//If username field is empty
+		if (empty($_POST['username']))
         {
-            echo '<p>Please enter both a username and password.</p>';
+            echo '<p>Please enter a valid username.</p>';
+        }
+		//If password field is empty
+		elseif (empty($_POST['password']))
+        {
+            echo '<p>Please enter a valid password.</p>';
         }
 		//Username and password don't match
         elseif ($user[$_POST['username']] != $_POST['password'])
         {
             echo '<p>Incorrect username or password</p>';
         }
-		//User entered valid details and can login
-        else
+		else
         {
             header("Refresh: 1");
             $_SESSION['loggedIn'] = true;
