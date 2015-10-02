@@ -12,17 +12,17 @@ if (!isset($_SESSION['loggedIn']))
     echo '<h1>Login</h1>';
     if ($_SERVER['REQUEST_METHOD'] == 'POST')
     {
-		//If username field is empty
-		if (empty($_POST['username']))
+	//If username field is empty
+	if (empty($_POST['username']))
         {
             echo '<p>Please enter a valid username.</p>';
         }
-		//If password field is empty
-		elseif (empty($_POST['password']))
+	//If password field is empty
+	elseif (empty($_POST['password']))
         {
             echo '<p>Please enter a valid password.</p>';
         }
-		//Username and password don't match
+	//Username and password don't match
         elseif ($user[$_POST['username']] != $_POST['password'])
         {
             echo '<p>Incorrect username or password</p>';
