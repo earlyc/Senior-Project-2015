@@ -1,3 +1,4 @@
+<?php include("login.php"); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +11,6 @@
 </head>
 
 <body>
-	<?php include("login.php"); ?>
 
 	<h1>Content goes here</h1>
 

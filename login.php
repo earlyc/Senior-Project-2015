@@ -1,4 +1,5 @@
 <?php
+
 session_start();
  
 //Username and password
@@ -9,7 +10,6 @@ $user["paul"] = "password";
  //If user is not logged in
 if (!isset($_SESSION['loggedIn']))
 {
-    echo '<h1>Login</h1>';
     if ($_SERVER['REQUEST_METHOD'] == 'POST')
     {
 	//If username field is empty
@@ -36,7 +36,7 @@ if (!isset($_SESSION['loggedIn']))
     }
     else
     {
-        exit('<p>You must be authenticated to view this page.</p>
+        exit('<h1>Login</h1><p>You must be authenticated to view this page.</p>
         <form method="POST" action=""><p>
         Username:<br />
         <input type="text" name="username" /><br /><br />
