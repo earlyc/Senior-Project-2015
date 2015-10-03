@@ -27,7 +27,7 @@ if (!isset($_SESSION['loggedIn']))
         {
             echo '<p>Incorrect username or password</p>';
         }
-		else
+	else
         {
             header("Refresh: 1");
             $_SESSION['loggedIn'] = true;
