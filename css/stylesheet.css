@@ -1,0 +1,60 @@
+/*Place css styling here*/
+
+#AVATARTopCenterText{
+	text-align: center;
+}
+
+#AVATARMovementControlsLabel{
+	margin-left:150px;
+}
+
+#moveFoward{
+	margin-left:250px;
+}
+
+#moveLeft{
+	position:relative;
+	margin-left:210px;
+	top:10px;
+}
+
+#moveRight{
+	position:relative;
+	margin-left:310px;
+	top:-10px;
+}
+
+#moveBackwards{
+	margin-left:250px;
+}
+
+#AVATARVideoText{
+	position:absolute;
+	/*text-align:center;*/
+	top:100px;
+	left: 860px;
+}
+
+#AVATARVideo{
+	width:300px;
+	height:300px;
+	background-color:black;
+	position:absolute;
+	left:-45px;
+	top:50px;
+}
+
+#UserVideoText{
+	position:relative;
+	top:250px;
+	left:870px;
+}
+
+#UserVideo{
+	width:300px;
+	height:300px;
+	background-color:black;
+	position:absolute;
+	left:-65px;
+	top:40px;
+}
