@@ -16,7 +16,7 @@
 		$(document).ready(function (){
         	$("#moveForward").click(function(e) {
             	e.preventDefault();
-				$.get("curl.php");
+				$.get("curl.php");//I put that
 				//alert(this);
 			
         		
