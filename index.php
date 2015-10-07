@@ -13,13 +13,13 @@
 	
 	<script type=text/javascript>
 		$(document).ready(function (){
-        	$("#moveForward").click(function(e) {
-            	e.preventDefault();
+        		$("#moveForward").click(function(e) {
+            			e.preventDefault();
 				alert(this);
 				//this is where the event code goes for the moveForward event
 				//php script is executed and passed the proper parameter
-        	});
-    	});
+        		});
+    		});
 	</script>
 	
 </head>
