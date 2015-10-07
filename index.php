@@ -18,11 +18,12 @@
             	e.preventDefault();
 				$.get("curl.php");
 				//alert(this);
-				
+			
+        		
 				//this is where the event code goes for the moveForward event
 				//php script is executed and passed the proper parameter
-        	});
-    	});
+        		});
+    		});
 	</script>
 	
 	<script type=text/javascript>
