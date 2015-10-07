@@ -1,68 +1,78 @@
 /*Place css styling here*/
-
-#AVATARTopCenterText{
+.title{
 	text-align: center;
+	display: block;
+	margin-left:auto;
+	margin-right:auto;
+	padding: 0;
+	width: 50%;
+	line-height: 50px;
+	border: 5px solid #000;
+	border-radius: 7px;
+	background-color:#0000FF;
+	color:#FFFFFF;
+}
+#UserVideo{
+	margin-left:65%;
+	width: 25%;
 }
 
 #AVATARMovementControlsLabel{
-	margin-left:150px;
-}
-
-.moveButton {
+	text-align: center;
 	display: block;
-	width: 100px;
-	line-height: 70px;
-	border: 1px solid #000;
+	margin-left:auto;
+	margin-right:auto;
+	padding: 0;
+	width: 50%;
+	line-height: 50px;
+	border: 5px solid #000;
 	border-radius: 7px;
+	background-color:#0000FF;
+	color:#FFFFFF;
+	
 }
 
-#moveForward{
-	margin-left:250px;
+.button {
+     /*Basic Button Styles*/
+    display: block;
+    height: 50px;
+    width: 150px;
+    background: #A0B0E0;
+    border: 2px solid rgba(33, 68, 72, 0.59);
+	margin: 20px;
+     
+    /*Text Styles*/
+    color: rgba(255,0,0);
+    text-align: center;
+    font: bold 1.5em/50px "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+     
+    /*Fancy CSS3 Styles*/
+    background: -webkit-linear-gradient(top, #34696f, #2f5f63);
+    background: -moz-linear-gradient(top, #34696f, #2f5f63);
+    background: -o-linear-gradient(top, #34696f, #2f5f63);
+    background: -ms-linear-gradient(top, #34696f, #2f5f63);
+    background: linear-gradient(top, #34696f, #2f5f63);
+     
+    -webkit-border-radius: 30px;
+    -khtml-border-radius: 30px;
+    -moz-border-radius: 30px;
+    border-radius: 30px;
+     
+    -webkit-box-shadow: 0 8px 0 #1b383b;
+    -moz-box-shadow: 0 8px 0 #1b383b;
+    box-shadow: 0 8px 0 #1b383b;
+     
+    text-shadow: 0 2px 2px rgba(255, 255, 255, 0.2);
+     
+}
+#stop{
+	font: bold 2em/50px "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+	color: rgba(255,255,0,255);
+	
+     
+    -webkit-border-radius: 100px;
+    -khtml-border-radius: 100px;
+    -moz-border-radius: 100px;
+    border-radius: 40%;
 }
 
-#moveLeft{
-	position:relative;
-	margin-left:210px;
-	top:10px;
-}
-
-#moveRight{
-	position:relative;
-	margin-left:310px;
-	top:-10px;
-}
-
-#moveBackwards{
-	margin-left:250px;
-}
-
-#AVATARVideoText{
-	position:absolute;
-	/*text-align:center;*/
-	top:100px;
-	left: 860px;
-}
-
-#AVATARVideo{
-	width:300px;
-	height:300px;
-	background-color:black;
-	position:absolute;
-	left:-45px;
-	top:50px;
-}
-
-#UserVideoText{
-	position:relative;
-	top:250px;
-	left:870px;
-}
-
-#UserVideo{
-	width:300px;
-	height:300px;
-	background-color:black;
-	position:absolute;
-	left:-65px;
-	top:40px;
-}
