@@ -8,7 +8,15 @@
 	margin-left:150px;
 }
 
-#moveFoward{
+.moveButton {
+	display: block;
+	width: 100px;
+	line-height: 70px;
+	border: 1px solid #000;
+	border-radius: 7px;
+}
+
+#moveForward{
 	margin-left:250px;
 }
 
