@@ -27,4 +27,6 @@ else if($command == 'turn180') {
 $var = curl_init($url);
 curl_exec($var);
 
+return;
+
 ?>
