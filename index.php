@@ -65,17 +65,17 @@
 <table style="width:50%">
   <tr>
     <td></td>
-    <td><button class ="button" id ="moveForward" type="button" onclick="forwardFunction()">Forward</button></td>		
-    <td><button class ="button" id ="stop" onclick="stopFunction()">STOP</button></td>
+    <td><button class ="button" id ="moveForward">Forward</button></td>		
+    <td><button class ="button" id ="stop">STOP</button></td>
   </tr>
   <tr>
-    <td><button class ="button"  id ="turnLeft" onclick="leftFunction()">Turn Left</button></td>
-    <td><button class ="button"  id ="moveBackwards" onclick="backwardsFunction()">Backwards</button></td>		
-    <td><button class ="button" id ="turnRight" onclick="rightunction()">Turn Right</button></td>
+    <td><button class ="button"  id ="turnLeft">Turn Left</button></td>
+    <td><button class ="button"  id ="moveBackwards">Backwards</button></td>		
+    <td><button class ="button" id ="turnRight">Turn Right</button></td>
   </tr>
   <tr>
     <td></td>
-    <td><button class ="button" id ="turn180" onclick="180Function()">Turn 180</button></td>		
+    <td><button class ="button" id ="turn180">Turn 180</button></td>		
     <td></td>
   </tr>
 </table>
