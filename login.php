@@ -1,3 +1,14 @@
+<html>
+	<style> 
+
+	div{
+		text-align:center;
+	}
+	
+	</style>
+</html>
+
+
 <?php
 
 session_start();
@@ -32,18 +43,23 @@ if (!isset($_SESSION['loggedIn']))
             header("Refresh: 1");
             $_SESSION['loggedIn'] = true;
             echo '<p>You are now logged in!</p>';
+			header("Location: index.php");//redirect to GUI page after login
         }
     }
     else
     {
-        exit('<h1>Login</h1><p>You must be authenticated to view this page.</p>
-        <form method="POST" action=""><p>
-        Username:<br />
-        <input type="text" name="username" /><br /><br />
-        Password:<br />
-        <input type="password" name="password" /><br /><br />
-        <input type="submit" value="Login" />
-        </form>');
+        exit (
+		'<div>
+			<h1>Login</h1><p>You must be authenticated to view this page.</p>
+			<form class ="test" method="POST" action=""><p>
+				Username:<br />
+				<input type="text" name="username" /><br /><br />
+				Password:<br />
+				<input type="password" name="password" /><br /><br />
+				<input type="submit" value="Login" />
+			</form>
+		</div>'
+		);
     }
 }
 ?>
