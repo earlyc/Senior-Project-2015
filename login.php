@@ -1,14 +1,3 @@
-<html>
-	<style> 
-
-	div{
-		text-align:center;
-	}
-	
-	</style>
-</html>
-
-
 <?php
 
 session_start();
