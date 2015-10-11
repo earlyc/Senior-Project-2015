@@ -17,7 +17,6 @@
         	$("#moveForward").click(function(e) {
             	e.preventDefault();
 				$.get("curl.php?command=moveForward");
-				$.get("http://192.168.240.1/arduino/drive/forward/1");
         	});
     		$("#stop").click(function(e) {
             	e.preventDefault();
