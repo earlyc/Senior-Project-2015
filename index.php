@@ -10,13 +10,14 @@
 		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
 	
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	<script src="jquery-2.1.4.js"></script>
 	
 	<script type=text/javascript>
 		$(document).ready(function (){
         	$("#moveForward").click(function(e) {
             	e.preventDefault();
 				$.get("curl.php?command=moveForward");
+				$.get("http://192.168.240.1/arduino/drive/forward/1");
         	});
     		$("#stop").click(function(e) {
             	e.preventDefault();
