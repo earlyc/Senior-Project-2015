@@ -46,7 +46,7 @@
 <body>
 
 <!-- Logout Link calls the script in logout.php; redirects user to login page -->
-<a href="logout.php"> LOGOUT </a>
+<a class = "logout"  href="logout.php" > <b>LOGOUT</b> </a>
 
   
 <h1 class="title" id="AVATARTopCenterText">AVATAR Control GUI</h1>

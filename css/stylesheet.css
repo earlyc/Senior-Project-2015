@@ -1,4 +1,14 @@
 /*Place css styling here*/
+
+body {
+    background-color: lightsteelblue;
+    margin: 0;
+    }
+	
+.logout{
+	margin-left: 93%;
+	color: #0000FF;
+}
 .title{
 	text-align: center;
 	display: block;
