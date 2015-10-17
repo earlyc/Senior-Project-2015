@@ -34,7 +34,6 @@ body#login-page {
 	color: #666;
 	background: #ddd;
 	text-decoration: none;
-	z-index: -10!important;
 }
 .title{
 	text-align: center;
