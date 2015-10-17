@@ -3,22 +3,22 @@
 $command = $_GET['command'];
 
 if($command == 'moveForward') {
-	$url = 'http://192.168.240.1/arduino/drive/forward/1';
+	$url = 'http://192.168.1.135/arduino/drive/forward/1';
 }
 else if($command == 'moveBackwards') {
-	$url = 'http://192.168.240.1/arduino/drive/rev/1';
+	$url = 'http://192.168.1.135/arduino/drive/rev/1';
 }
 else if($command == 'stop') {
-	$url = 'http://192.168.240.1/arduino/drive/stop/1';
+	$url = 'http://192.168.1.135/arduino/drive/stop/1';
 }
 else if($command == 'turnRight') {
-	$url = 'http://192.168.240.1/arduino/turn/right/wide/1';
+	$url = 'http://192.168.1.135/arduino/turn/right/wide/1';
 }
 else if($command == 'turnLeft') {
-	$url = 'http://192.168.240.1/arduino/turn/left/wide/1';
+	$url = 'http://192.168.1.135/arduino/turn/left/wide/1';
 }
 else if($command == 'turn180') {
-	$url = 'http://192.168.240.1/arduino/...';
+	$url = 'http://192.168.1.135/arduino/...';
 }
 
 $var = curl_init($url);

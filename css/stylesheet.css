@@ -1,26 +1,46 @@
 /*Place css styling here*/
 
+@font-face {
+      font-family: "Signika";
+      src: url("Signika/Signika-Regular.ttf");
+    }
+    
+@font-face {
+      font-family: "SignikaBold";
+      src: url("Signika/Signika-Bold.ttf");
+    }
+
 body {
     background-color: lightsteelblue;
     margin: 0;
+    font-family: "Signika";
     }
+    
+body#login-page {
+	text-align: center;
+}
 	
 .logout{
-	margin-left: 93%;
-	color: #0000FF;
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 100px;
+	text-align: center;
+	margin: 15px;
+	display: block;
+	border: 1px solid #aaa;
+	border-radius: 7px;
+	box-shadow: 2px 2px 7px black;
+	color: #666;
+	background: #ddd;
+	text-decoration: none;
+	z-index: -10!important;
 }
 .title{
 	text-align: center;
 	display: block;
-	margin-left:auto;
-	margin-right:auto;
+	margin: 0px auto;
 	padding: 0;
-	width: 50%;
-	line-height: 50px;
-	border: 5px solid #000;
-	border-radius: 7px;
-	background-color:#0000FF;
-	color:#FFFFFF;
 }
 #UserVideo{
 	margin-left:65%;
@@ -30,16 +50,40 @@ body {
 #AVATARMovementControlsLabel{
 	text-align: center;
 	display: block;
-	margin-left:auto;
-	margin-right:auto;
+	margin: 0px auto;
 	padding: 0;
 	width: 50%;
 	line-height: 50px;
-	border: 5px solid #000;
+	color: #666;
+	background: #ddd;
+	/*text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.5);*/
+    font-family: "SignikaBold";
+	border: 1px solid #aaa;
 	border-radius: 7px;
-	background-color:#0000FF;
-	color:#FFFFFF;
-	
+	box-shadow: 2px 2px 7px black
+}
+
+.title-box {
+	text-align: center;
+	display: block;
+	margin: 0px auto;
+	padding: 0;
+	width: 50%;
+	line-height: 50px;
+	color: #666;
+	background: #ddd;
+    font-family: "SignikaBold";
+	border: 1px solid #aaa;
+	border-radius: 7px;
+	box-shadow: 2px 2px 7px black
+}
+
+#AVATARMovementControls {
+	background-color: #ddd;
+	border: 1px solid #aaa;
+	border-radius: 7px;
+	margin: 30px;
+	box-shadow: 2px 2px 7px black;
 }
 
 .button {
@@ -49,12 +93,12 @@ body {
     width: 150px;
     background: #A0B0E0;
     border: 2px solid rgba(33, 68, 72, 0.59);
-	margin: 20px;
+	margin: 20px 10px;
      
     /*Text Styles*/
     color: rgba(255,0,0);
     text-align: center;
-    font: bold 1.5em/50px "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+    font: bold 1.5em/50px "Signika", Arial, Helvetica, Geneva, sans-serif;
      
     /*Fancy CSS3 Styles*/
     background: -webkit-linear-gradient(top, #34696f, #2f5f63);

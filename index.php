@@ -49,12 +49,12 @@
 <a class = "logout"  href="logout.php" > <b>LOGOUT</b> </a>
 
   
-<h1 class="title" id="AVATARTopCenterText">AVATAR Control GUI</h1>
+<h1 class="title" id="AVATARTopCenterText"><img src="avatar.png" /></h1>
 <table style="width:100%">
   <tr>
     
-    <td><h1 id="AVATARMovementControlsLabel"> Movement Control</h1></td>		
-	<td><h1 id="AVATARMovementControlsLabel"> AVATAR Video </h1></td>
+    <td><h1 class="title-box"> Movement Control</h1></td>		
+	<td><h1 class="title-box"> AVATAR Video </h1></td>
   </tr>
   <tr>
     
@@ -62,7 +62,7 @@
   </tr>
  
 </table>
-<table style="width:50%">
+<table id="AVATARMovementControls" style="width:50%">
   <tr>
     <td></td>
     <td><button class ="button" id ="moveForward">Forward</button></td>		
@@ -80,7 +80,7 @@
   </tr>
 </table>
 
-<h1 class="title" id="UserVideo">User Video</h1>
+<h1 class="title-box" id="UserVideo">User Video</h1>
 	
 </body>
 </html>

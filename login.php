@@ -38,7 +38,15 @@ if (!isset($_SESSION['loggedIn']))
     else
     {
         exit (
-		'<div>
+		'<html>
+		<head>	
+	<meta charset="utf-8">
+	<title>AVATAR Control Interface</title>
+	<link rel="stylesheet" type="text/css" href="css/stylesheet.css">
+		</head>
+		<body id=login-page>
+		<img src="avatar.png" />
+		<div id=login-box>
 			<h1>Login</h1><p>You must be authenticated to view this page.</p>
 			<form class ="test" method="POST" action=""><p>
 				Username:<br />
@@ -47,7 +55,9 @@ if (!isset($_SESSION['loggedIn']))
 				<input type="password" name="password" /><br /><br />
 				<input type="submit" value="Login" />
 			</form>
-		</div>'
+		</div>
+		</body>
+		</html>'
 		);
     }
 }
