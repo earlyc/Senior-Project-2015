@@ -49,9 +49,9 @@ if (!isset($_SESSION['loggedIn']))
 		<div id=login-box>
 			<h1>Login</h1><p>You must be authenticated to view this page.</p>
 			<form class ="test" method="POST" action=""><p>
-				Username:<br />
+				Username:
 				<input type="text" name="username" /><br /><br />
-				Password:<br />
+				Password:
 				<input type="password" name="password" /><br /><br />
 				<input type="submit" value="Login" />
 			</form>

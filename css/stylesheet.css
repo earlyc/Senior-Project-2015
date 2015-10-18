@@ -10,17 +10,44 @@
       src: url("Signika/Signika-Bold.ttf");
     }
 
-body {
-    background-color: lightsteelblue;
-    margin: 0;
+body,
+html {
+	margin: 0;
+	padding: 0;
+	color: #000;
     font-family: "Signika";
-    }
+	background: #b0c4de;
+}
     
 body#login-page {
 	text-align: center;
 }
+
+#wrap {
+	width: 1000px;
+	margin: 0 auto;
+}
+
+header {
+	margin: 0;
+	text-align: center;
+}
+
+header img {
+	margin: 0px auto;
+}
+
+#left {
+	float: left;
+	width: 50%;
+}
+
+#right {
+	float: right;
+	width: 50%;
+}
 	
-.logout{
+.logout {
 	position: absolute;
 	top: 0;
 	right: 0;
@@ -35,18 +62,9 @@ body#login-page {
 	background: #ddd;
 	text-decoration: none;
 }
-.title{
-	text-align: center;
-	display: block;
-	margin: 0px auto;
-	padding: 0;
-}
-#UserVideo{
-	margin-left:65%;
-	width: 25%;
-}
 
-#AVATARMovementControlsLabel{
+
+#AVATARMovementControlsLabel {
 	text-align: center;
 	display: block;
 	margin: 0px auto;
@@ -62,12 +80,12 @@ body#login-page {
 	box-shadow: 2px 2px 7px black
 }
 
-.title-box {
+.box-title {
 	text-align: center;
 	display: block;
 	margin: 0px auto;
 	padding: 0;
-	width: 50%;
+	width: 90%;
 	line-height: 50px;
 	color: #666;
 	background: #ddd;
@@ -81,7 +99,17 @@ body#login-page {
 	background-color: #ddd;
 	border: 1px solid #aaa;
 	border-radius: 7px;
-	margin: 30px;
+	margin: 30px auto;
+	width: 90%;
+	box-shadow: 2px 2px 7px black;
+}
+
+#login-box {
+	background-color: #ddd;
+	border: 1px solid #aaa;
+	border-radius: 7px;
+	margin: 30px auto;
+	width: 400px;
 	box-shadow: 2px 2px 7px black;
 }
 
@@ -89,7 +117,7 @@ body#login-page {
      /*Basic Button Styles*/
     display: block;
     height: 50px;
-    width: 150px;
+    width: 120px;
     background: #A0B0E0;
     border: 2px solid rgba(33, 68, 72, 0.59);
 	margin: 20px 10px;
@@ -118,11 +146,9 @@ body#login-page {
     text-shadow: 0 2px 2px rgba(255, 255, 255, 0.2);
      
 }
-#stop{
+#stop {
 	font: bold 2em/50px "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
 	color: rgba(255,255,0,255);
-	
-     
     -webkit-border-radius: 100px;
     -khtml-border-radius: 100px;
     -moz-border-radius: 100px;
