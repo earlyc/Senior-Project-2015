@@ -10,36 +10,8 @@
 			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
 		
-		<script src="jquery-2.1.4.js"></script>
-		
-		<script type=text/javascript>
-			$(document).ready(function (){
-	        	$("#moveForward").click(function(e) {
-	            	e.preventDefault();
-					$.get("curl.php?command=moveForward");
-	        	});
-	    		$("#stop").click(function(e) {
-	            	e.preventDefault();
-					$.get("curl.php?command=stop");
-	        	});
-	    		$("#turnLeft").click(function(e) {
-	            	e.preventDefault();
-					$.get("curl.php?command=turnLeft");
-	        	});
-	    		$("#turnRight").click(function(e) {
-	            	e.preventDefault();
-					$.get("curl.php?command=turnRight");
-	        	});
-	    		$("#moveBackwards").click(function(e) {
-	            	e.preventDefault();
-					$.get("curl.php?command=moveBackwards");
-	        	});
-	    		$("#turn180").click(function(e) {
-	            	e.preventDefault();
-					$.get("curl.php?command=turn180");
-	        	});
-	    	});
-		</script>
+		<script src="jquery-2.1.4.js" type=text/javascript></script>
+		<script src="siteScript.js" type=text/javascript></script>
 		
 	</head>
 	
@@ -74,7 +46,35 @@
 			</div>
 			<div id="right">
 				<h1 class="box-title"> AVATAR Video </h1>
+				<div id="AVATARVideoContainer">
+				</div>
 				<h1 class="box-title">User Video</h1>
+				<div id="userVideoContainer">
+					<video id="userVideo" autoplay></video>
+					<script>
+						var errorCallback = function(e) {
+							console.log('Callback Error', e);
+						};
+					
+						navigator.getUserMedia  = navigator.getUserMedia ||
+							navigator.webkitGetUserMedia ||
+							navigator.mozGetUserMedia ||
+							navigator.msGetUserMedia;
+					
+						var video = document.querySelector('video');
+					
+						if (navigator.getUserMedia) {
+							navigator.getUserMedia({audio: true, video: true}, function(stream) {
+								video.src = window.URL.createObjectURL(stream);
+							}, errorCallback);
+						} else {
+							video.src = '#'; // fallback.
+						}
+						video.onloadedmetadata = function(e) {
+							//do other stuff once video is loaded
+						};
+					</script>
+				</div>
 			</div>
 			<footer>
 			
