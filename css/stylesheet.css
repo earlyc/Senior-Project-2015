@@ -16,7 +16,7 @@ html {
 	padding: 0;
 	color: #000;
     font-family: "Signika";
-	background: #b0c4de;
+	background: black;
 }
     
 body#login-page {
@@ -125,7 +125,7 @@ header img {
     /*Text Styles*/
     color: rgba(255,0,0);
     text-align: center;
-    font: bold 1.5em/50px "Signika", Arial, Helvetica, Geneva, sans-serif;
+    font: bold 1.3em/50px "Signika", Arial, Helvetica, Geneva, sans-serif;
      
     /*Fancy CSS3 Styles*/
     background: -webkit-linear-gradient(top, #34696f, #2f5f63);

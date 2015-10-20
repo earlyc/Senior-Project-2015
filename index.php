@@ -52,6 +52,11 @@
 				<div id="userVideoContainer">
 					<video id="userVideo" autoplay></video>
 					<script>
+						window.onbeforeunload = function(e) {
+						return '';
+						};
+					</script>
+					<script>
 						var errorCallback = function(e) {
 							console.log('Callback Error', e);
 						};
