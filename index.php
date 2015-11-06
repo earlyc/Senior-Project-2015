@@ -12,6 +12,11 @@
 		
 		<script src="jquery-2.1.4.js" type=text/javascript></script>
 		<script src="siteScript.js" type=text/javascript></script>
+		<script>
+			window.onbeforeunload = function(e) {
+				return '';
+			};
+		</script>
 		
 	</head>
 	
@@ -45,36 +50,40 @@
 				</table>
 			</div>
 			<div id="right">
+				<div>
+					<button id="startButton">Start</button>
+					<button id="callButton">Call</button>
+					<button id="hangupButton">Hang Up</button>
+				</div>
 				<h1 class="box-title"> AVATAR Video </h1>
 				<div id="AVATARVideoContainer">
+					<video id="remoteVideo" autoplay></video>
 				</div>
 				<h1 class="box-title">User Video</h1>
 				<div id="userVideoContainer">
-					<video id="userVideo" autoplay></video>
-					<script>
-						window.onbeforeunload = function(e) {
-						return '';
-						};
-					</script>
+					<video id="localVideo" autoplay></video>
+
 					<script>
 						var errorCallback = function(e) {
-							console.log('Callback Error', e);
+							console.log('navigator.getUserMedia error: ', e);
 						};
+						
+						var constraints = {audio: true, video: true};
 					
-						navigator.getUserMedia  = navigator.getUserMedia ||
-							navigator.webkitGetUserMedia ||
-							navigator.mozGetUserMedia ||
-							navigator.msGetUserMedia;
+						navigator.getUserMedia  = 	navigator.getUserMedia ||
+													navigator.webkitGetUserMedia ||
+													navigator.mozGetUserMedia ||
+													navigator.msGetUserMedia;
 					
-						var video = document.querySelector('video');
-					
-						if (navigator.getUserMedia) {
-							navigator.getUserMedia({audio: true, video: true}, function(stream) {
-								video.src = window.URL.createObjectURL(stream);
-							}, errorCallback);
-						} else {
-							video.src = '#'; // fallback.
+						function successCallback(localMediaStream) {
+							window.stream = localMediaStream;
+							var video = document.querySelector('video');
+							video.src = window.URL.createObjectURL(localMediaStream);
+							video.play();
 						}
+
+						navigator.getUserMedia(constraints, successCallback, errorCallback);
+
 						video.onloadedmetadata = function(e) {
 							//do other stuff once video is loaded
 						};
