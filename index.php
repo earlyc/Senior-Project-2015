@@ -11,7 +11,6 @@
 		<![endif]-->
 		
 		<script src="jquery-2.1.4.js" type=text/javascript></script>
-		<script src="siteScript.js" type=text/javascript></script>
 		<script>
 			window.onbeforeunload = function(e) {
 				return '';
@@ -34,7 +33,7 @@
 		  webrtc.joinRoom('AVATAR');
 		  });
       	</script>
-		
+		<script src="siteScript.js" type=text/javascript></script>
 	</head>
 	
 	<body>
