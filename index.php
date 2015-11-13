@@ -12,6 +12,28 @@
 		
 		<script src="jquery-2.1.4.js" type=text/javascript></script>
 		<script src="siteScript.js" type=text/javascript></script>
+		<script>
+			window.onbeforeunload = function(e) {
+				return '';
+			};
+		</script>
+		<script src="simplewebrtc.js"></script>
+    	<script>
+		  var webrtc = new SimpleWebRTC({
+		  // the id/element dom element that will hold "our" video
+		  localVideoEl: 'localVideo',
+		  // the id/element dom element that will hold remote videos
+		  remoteVideosEl: 'AVATARVideoContainer',
+		  // immediately ask for camera access
+		  autoRequestMedia: true,
+		  url: 'http://192.168.1.122:8888/'
+		  });
+		  // we have to wait until it's ready
+		  webrtc.on('readyToCall', function () {
+		  // you can name it anything
+		  webrtc.joinRoom('AVATAR');
+		  });
+      	</script>
 		
 	</head>
 	
@@ -29,7 +51,6 @@
 				<table id="AVATARMovementControls">
 					<tr>
 						<td></td>
-					<!--	<td><input id="moveForward" type="image" src="forward.png" value="moveForward"></td> -->
 						<td><button class ="button" id ="moveForward">Forward</button></td>		
 						<td><button class ="button" id ="stop">STOP</button></td>
 					</tr>
@@ -51,37 +72,12 @@
 				</div>
 				<h1 class="box-title">User Video</h1>
 				<div id="userVideoContainer">
-					<video id="userVideo" autoplay></video>
-					<script>
-						window.onbeforeunload = function(e) {
-						return '';
-						};
-					</script>
-				
-					
-					<script>
-						var errorCallback = function(e) {
-							console.log('Callback Error', e);
-						};
-					
-						navigator.getUserMedia  = navigator.getUserMedia ||
-							navigator.webkitGetUserMedia ||
-							navigator.mozGetUserMedia ||
-							navigator.msGetUserMedia;
-					
-						var video = document.querySelector('video');
-					
-						if (navigator.getUserMedia) {
-							navigator.getUserMedia({audio: true, video: true}, function(stream) {
-								video.src = window.URL.createObjectURL(stream);
-							}, errorCallback);
-						} else {
-							video.src = '#'; // fallback.
-						}
-						video.onloadedmetadata = function(e) {
-							//do other stuff once video is loaded
-						};
-					</script>
+					<div>
+						<button id="startButton">Start</button>
+						<button id="stopButton">Stop</button>
+						<button id="muteButton">Mute</button>
+					</div>
+					<video id="localVideo" autoplay></video>
 				</div>
 			</div>
 			<footer>
