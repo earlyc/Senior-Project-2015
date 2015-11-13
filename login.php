@@ -6,6 +6,7 @@ session_start();
 $user["chris"] = "password";
 $user["khanh"] = "password";
 $user["paul"] = "password";
+$user["tablet"] = "password";
  
  //If user is not logged in
 if (!isset($_SESSION['loggedIn']))
@@ -29,10 +30,18 @@ if (!isset($_SESSION['loggedIn']))
         }
 	else
         {
+        	if($_POST['username'] == 'tablet') {
+        	           	header("Refresh: 1");
+            			$_SESSION['loggedIn'] = true;
+        			echo '<p>You are now logged in!</p>';
+				header("Location: uservideopage.php");//redirect to GUI page after login	
+        	}
+        	else {
             header("Refresh: 1");
             $_SESSION['loggedIn'] = true;
             echo '<p>You are now logged in!</p>';
-			header("Location: index.php");//redirect to GUI page after login
+		header("Location: index.php");//redirect to GUI page after login
+        	}
         }
     }
     else
