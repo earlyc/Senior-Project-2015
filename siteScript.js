@@ -1,26 +1,52 @@
 $(document).ready(function (){
-	$("#moveForward").click(function(e) {
+	
+	$("#moveForward").mousedown(function(e) {
     	e.preventDefault();
 		$.get("curl.php?command=moveForward");
 	});
+	$("#moveForward").mouseup(function(e) {
+    	e.preventDefault();
+		$.get("curl.php?command=stop");
+	});
+	
 	$("#stop").click(function(e) {
     	e.preventDefault();
 		$.get("curl.php?command=stop");
 	});
-	$("#turnLeft").click(function(e) {
+	
+	$("#turnLeft").mousedown(function(e) {
     	e.preventDefault();
 		$.get("curl.php?command=turnLeft");
 	});
-	$("#turnRight").click(function(e) {
+	$("#turnLeft").mouseup(function(e) {
+    	e.preventDefault();
+		$.get("curl.php?command=stop");
+	});
+	
+	$("#turnRight").mousedown(function(e) {
     	e.preventDefault();
 		$.get("curl.php?command=turnRight");
 	});
-	$("#moveBackwards").click(function(e) {
+	$("#turnRight").mouseup(function(e) {
+    	e.preventDefault();
+		$.get("curl.php?command=stop");
+	});
+	
+	$("#moveBackwards").mousedown(function(e) {
     	e.preventDefault();
 		$.get("curl.php?command=moveBackwards");
 	});
-	$("#turn180").click(function(e) {
+	$("#moveBackwards").mouseup(function(e) {
+    	e.preventDefault();
+		$.get("curl.php?command=stop");
+	});
+	
+	$("#turn180").mousedown(function(e) {
     	e.preventDefault();
 		$.get("curl.php?command=turn180");
+	});
+	$("#turn180").mouseup(function(e) {
+    	e.preventDefault();
+		$.get("curl.php?command=stop");
 	});
 });

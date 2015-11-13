@@ -29,6 +29,7 @@
 				<table id="AVATARMovementControls">
 					<tr>
 						<td></td>
+					<!--	<td><input id="moveForward" type="image" src="forward.png" value="moveForward"></td> -->
 						<td><button class ="button" id ="moveForward">Forward</button></td>		
 						<td><button class ="button" id ="stop">STOP</button></td>
 					</tr>
@@ -56,6 +57,8 @@
 						return '';
 						};
 					</script>
+				
+					
 					<script>
 						var errorCallback = function(e) {
 							console.log('Callback Error', e);

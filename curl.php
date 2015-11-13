@@ -18,7 +18,7 @@ else if($command == 'turnLeft') {
 	$url = 'http://192.168.240.1/arduino/turn/left/narrow/1';
 }
 else if($command == 'turn180') {
-	$url = 'http://192.168.240.1/arduino/yaw/180/1';
+	$url = 'http://192.168.240.1/arduino/yaw/cw/1';
 }
 
 $var = curl_init($url);
