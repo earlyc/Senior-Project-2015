@@ -39,16 +39,14 @@
 	
 	<body>
 		
-		<div id="wrap">
-			<div id="left">
-				<!-- <h1 class="box-title"> AVATAR Video </h1> -->
+			<div id="userVideoPageVideo">
+				<h1 class="box-title" > User Video </h1> <!-- This was AVATAR Video -->
 				<div id="AVATARVideoContainer">
 				</div>
-				<h1 class="box-title">User Video</h1>
+				<!--<h1 class="box-title">User Video</h1>-->
 				<div id="userVideoContainer">
-					<video id="localVideo" autoplay></video>
+					<video style="display:block; margin: 0 auto; visibility: hidden;" id="localVideo" autoplay></video>
 				</div>
 			</div>
-		</div>
 	</body>
 </html>
