@@ -11,6 +11,7 @@
 		<![endif]-->
 		
 		<script src="jquery-2.1.4.js" type=text/javascript></script>
+		<script src="siteScript.js" type=text/javascript></script>
 		<script>
 			window.onbeforeunload = function(e) {
 				return '';
@@ -33,7 +34,7 @@
 		  webrtc.joinRoom('AVATAR');
 		  });
       	</script>
-		<script src="siteScript.js" type=text/javascript></script>
+		
 	</head>
 	
 	<body>
@@ -42,33 +43,33 @@
 		<a class = "logout"  href="logout.php" > <b>Log Out</b> </a>
 		
 		<div id="wrap">
-			<div id="header">
+			<header>
 				<img src="avatar.png" />
-				<table id="nav">
-					<tr>
-						<td><input class="button" type="image" src= "stop.png" id ="stop"></td>
-						<td><input class="button" type="image" src="forward.png" id ="moveForward"></button></td>		
-						<td><input class="button" type="image" src= "turn180.png" id ="turn180"></td>
-					</tr>
-					<tr>
-						<td><input class="button" type="image" src= "turnleft.png" id ="turnLeft"></td>
-						<td><input class="button" type="image" src= "backward.png" id ="moveBackwards"></td>		
-						<td><input class="button"type="image" src= "turnright.png" id ="turnRight"></td>
-					</tr>
-							
-				</table>	
-			
-			</div>
-			
-				
-				
+			</header>
 			<div id="left">
+				<h1 class="box-title"> Movement Control</h1>
+				<table id="AVATARMovementControls">
+					<tr>
+						<td></td>
+						<td><button class ="button" id ="moveForward">Forward</button></td>		
+						<td><button class ="button" id ="stop">STOP</button></td>
+					</tr>
+					<tr>
+						<td><button class ="button"  id ="turnLeft">Turn Left</button></td>
+						<td><button class ="button"  id ="moveBackwards">Backwards</button></td>		
+						<td><button class ="button" id ="turnRight">Turn Right</button></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td><button class ="button" id ="turn180">Turn 180</button></td>		
+						<td></td>
+					</tr>
+				</table>
+			</div>
+			<div id="right">
 				<h1 class="box-title"> AVATAR Video </h1>
 				<div id="AVATARVideoContainer">
 				</div>
-			</div>
-			
-			<div id="right">		
 				<h1 class="box-title">User Video</h1>
 				<div id="userVideoContainer">
 					<div>

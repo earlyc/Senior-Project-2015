@@ -28,13 +28,30 @@ body#login-page {
 	margin: 0 auto;
 }
 
-header {
+#header {
+	
 	margin: 0;
 	text-align: center;
+	height: 180px;
 }
 
-header img {
+#header img {
 	margin: 0px auto;
+	height: 180px;
+}
+#nav {
+	margin: 0px;
+	float: right;
+	margin-left: 30%;
+
+}
+
+    
+.button {
+     /*Basic Button Styles*/
+ 
+	width: 50px;
+	padding: 0 10px 0 10px;
 }
 
 #left {
@@ -113,47 +130,7 @@ header img {
 	box-shadow: 2px 2px 7px black;
 }
 
-.button {
-     /*Basic Button Styles*/
-    display: block;
-    height: 50px;
-    width: 120px;
-    background: #A0B0E0;
-    border: 2px solid rgba(33, 68, 72, 0.59);
-	margin: 20px 10px;
-     
-    /*Text Styles*/
-    color: rgba(255,0,0);
-    text-align: center;
-    font: bold 1.3em/50px "Signika", Arial, Helvetica, Geneva, sans-serif;
-     
-    /*Fancy CSS3 Styles*/
-    background: -webkit-linear-gradient(top, #34696f, #2f5f63);
-    background: -moz-linear-gradient(top, #34696f, #2f5f63);
-    background: -o-linear-gradient(top, #34696f, #2f5f63);
-    background: -ms-linear-gradient(top, #34696f, #2f5f63);
-    background: linear-gradient(top, #34696f, #2f5f63);
-     
-    -webkit-border-radius: 30px;
-    -khtml-border-radius: 30px;
-    -moz-border-radius: 30px;
-    border-radius: 30px;
-     
-    -webkit-box-shadow: 0 8px 0 #1b383b;
-    -moz-box-shadow: 0 8px 0 #1b383b;
-    box-shadow: 0 8px 0 #1b383b;
-     
-    text-shadow: 0 2px 2px rgba(255, 255, 255, 0.2);
-     
-}
-#stop {
-	font: bold 2em/50px "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
-	color: rgba(255,255,0,255);
-    -webkit-border-radius: 100px;
-    -khtml-border-radius: 100px;
-    -moz-border-radius: 100px;
-    border-radius: 40%;
-}
+
 
 #userVideoContainer {
 	width: 90%;
