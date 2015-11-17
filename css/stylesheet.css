@@ -59,6 +59,14 @@ body#login-page {
 	width: 50%;
 }
 
+#userVideoPageVideo{
+	margin: auto;
+	width: 95%;
+	height: 95%;
+	border: 3px solid #aaa;
+	padding: 10px;
+}
+
 #right {
 	float: right;
 	width: 50%;
