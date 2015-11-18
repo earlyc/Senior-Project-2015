@@ -39,10 +39,11 @@
 	<body>
 	
 		<!-- Logout Link calls the script in logout.php; redirects user to login page -->
-		<a class = "logout"  href="logout.php" > <b>Log Out</b> </a>
+		
 		
 		<div id="wrap">
 			<div id="header">
+				<a class = "logout"  href="logout.php" > <b>Log Out</b> </a>
 				<img src="avatar.png" />
 				<table id="nav">
 					<tr>
@@ -61,7 +62,8 @@
 			</div>
 			
 				
-				
+			<div id= "container">
+			
 			<div id="left">
 				<h1 class="box-title"> AVATAR Video </h1>
 				<div id="AVATARVideoContainer">
@@ -78,6 +80,7 @@
 					</div>
 					<video id="localVideo" autoplay></video>
 				</div>
+			</div>
 			</div>
 			<footer>
 			
