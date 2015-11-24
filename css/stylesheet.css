@@ -86,7 +86,7 @@ body#login-page {
 .logout {
 	position: absolute;
 	top: 0;
-	right: 20px;
+	right: 25px;
 	width: 100px;
 	text-align: center;
 	margin: 15px;

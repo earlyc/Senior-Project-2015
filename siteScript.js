@@ -70,4 +70,11 @@ $(document).ready(function (){
 		e.preventDefault();
 		webrtc.unmute();
 		});
+	$("#stopButton").clickToggle(function(e) {
+		e.preventDefault();
+		webrtc.pauseVideo();;
+		},function(e) {
+		e.preventDefault();
+		webrtc.resumeVideo();;
+		});
 });
