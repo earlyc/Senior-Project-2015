@@ -31,16 +31,13 @@ if (!isset($_SESSION['loggedIn']))
 	else
         {
         	if($_POST['username'] == 'tablet') {
-        	           	header("Refresh: 1");
-            			$_SESSION['loggedIn'] = true;
-        			echo '<p>You are now logged in!</p>';
-				header("Location: uservideopage.php");//redirect to GUI page after login	
+            	$_SESSION['loggedIn'] = true;
+				header("Location:uservideopage.php");
+				die();
+die();
         	}
         	else {
-            header("Refresh: 1");
-            $_SESSION['loggedIn'] = true;
-            echo '<p>You are now logged in!</p>';
-		header("Location: index.php");//redirect to GUI page after login
+            	$_SESSION['loggedIn'] = true;
         	}
         }
     }
