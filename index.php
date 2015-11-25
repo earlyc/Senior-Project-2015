@@ -46,19 +46,7 @@
 			<div id="header">
 				<a class = "logout"  href="logout.php" > <b>Log Out</b> </a>
 				<img src="avatar.png" />
-				<table id="nav">
-					<tr>
-						<td><input class="button" type="image" src= "stop.png" id ="stop"></td>
-						<td><input class="button" type="image" src="forward.png" id ="moveForward"></button></td>		
-						<td><input class="button" type="image" src= "turn180.png" id ="turn180"></td>
-					</tr>
-					<tr>
-						<td><input class="button" type="image" src= "turnleft.png" id ="turnLeft"></td>
-						<td><input class="button" type="image" src= "backward.png" id ="moveBackwards"></td>		
-						<td><input class="button"type="image" src= "turnright.png" id ="turnRight"></td>
-					</tr>
-							
-				</table>	
+				
 			
 			</div>
 			
@@ -68,19 +56,43 @@
 			<div id="left">
 				<h1 class="box-title"> AVATAR Video </h1>
 				<div id="AVATARVideoContainer">
-				</div>
-			</div>
-			
-			<div id="right">		
-				<h1 class="box-title">User Video</h1>
-				<div id="userVideoContainer">
+				
+					<div id="userVideoContainer">
 					<div>
 						<button id="startButton">Start</button>
 						<button id="stopButton">Stop</button>
 						<button id="muteButton">Mute</button>
 					</div>
 					<video id="localVideo" autoplay></video>
+					</div>
 				</div>
+				
+				
+				
+			</div>
+			
+			<div id="right">	
+				<h1 class="box-title"> MOVEMENT CONTROL </h1>
+				<table id="nav">
+					<tr>
+						<td></td>
+						<td><input class="button" type="image" src="forward.png" id ="moveForward"></button></td>	
+						<td><input class="button" type="image" src= "stop.png" id ="stop"></td>						
+						
+					</tr>
+					<tr>
+						<td><input class="button" type="image" src= "turnleft.png" id ="turnLeft"></td>
+						<td><input class="button" type="image" src= "turn180.png" id ="turn180"></td>
+						<td><input class="button"type="image" src= "turnright.png" id ="turnRight"></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td><input class="button" type="image" src= "backward.png" id ="moveBackwards"></td>		
+						<td></td>
+					</tr>
+							
+				</table>	
+				
 			</div>
 			</div>
 			<footer>
