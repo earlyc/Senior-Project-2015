@@ -51,8 +51,7 @@ body#login-page img {
 #nav {
 	
 	float: center;
-	margin-top: 20px;
-	margin-left: 50px;
+	margin: 20px; 
 	
 
 
@@ -61,8 +60,8 @@ body#login-page img {
     
 .button {
      /*Basic Button Styles*/
-	padding: 15px 0;
-	width: 60%;
+	padding: 10px;
+	width: 70%;
 	
 }
 #container{
@@ -80,7 +79,9 @@ body#login-page img {
 
 
 #AVATARVideoContainer{
-	height: 500px;
+	position: relative;
+    height: 500px;
+	width: 95%;
 	margin: 20px;
 	background: green;
 }
@@ -88,6 +89,7 @@ body#login-page img {
 #userVideoContainer {
 	float: right;
 	width: 200px;
+	
 	height: 200px;
 	background: blue;
 }
@@ -100,7 +102,7 @@ body#login-page img {
 .logout {
 	position: absolute;
 	top: 0;
-	right: 25px;
+	right: 20px;
 	width: 100px;
 	text-align: center;
 	margin: 15px;

@@ -24,11 +24,10 @@
 		  // the id/element dom element that will hold remote videos
 		  remoteVideosEl: 'AVATARVideoContainer',
 		  // immediately ask for camera access
-		  autoRequestMedia: true
+		  autoRequestMedia: true,
+		  url: 'http://192.168.1.122:8888/'
 		  });
 		  // we have to wait until it's ready
-		  
-		  //url: 'http://192.168.1.122:8888/'
 		  webrtc.on('readyToCall', function () {
 		  // you can name it anything
 		  webrtc.joinRoom('AVATAR');
@@ -56,7 +55,6 @@
 			<div id="left">
 				<h1 class="box-title"> AVATAR Video </h1>
 				<div id="AVATARVideoContainer">
-				
 					<div id="userVideoContainer">
 					<div>
 						<button id="startButton">Start</button>
@@ -64,7 +62,8 @@
 						<button id="muteButton">Mute</button>
 					</div>
 					<video id="localVideo" autoplay></video>
-					</div>
+				</div>
+					
 				</div>
 				
 				
