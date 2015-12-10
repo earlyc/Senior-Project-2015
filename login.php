@@ -1,3 +1,4 @@
+<!-- Christopher Early, Paul Bretanus -->
 <?php
 
 session_start();
